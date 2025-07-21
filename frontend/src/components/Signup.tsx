@@ -204,13 +204,21 @@ const Signup: React.FC<SignupProps> = ({ onSignup, onSwitchToLogin }) => {
               />
               <label htmlFor="agreeToTerms" className="ml-2 block text-sm text-gray-900">
                 I agree to the{' '}
-                <a href="#" className="text-indigo-600 hover:text-indigo-500">
+                <button 
+                  type="button"
+                  className="text-indigo-600 hover:text-indigo-500 bg-transparent border-none cursor-pointer underline"
+                  onClick={() => alert('Terms of Service would be displayed here')}
+                >
                   Terms of Service
-                </a>{' '}
+                </button>{' '}
                 and{' '}
-                <a href="#" className="text-indigo-600 hover:text-indigo-500">
+                <button 
+                  type="button"
+                  className="text-indigo-600 hover:text-indigo-500 bg-transparent border-none cursor-pointer underline"
+                  onClick={() => alert('Privacy Policy would be displayed here')}
+                >
                   Privacy Policy
-                </a>
+                </button>
               </label>
             </div>
 
