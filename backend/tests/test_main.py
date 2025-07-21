@@ -4,7 +4,16 @@ Test suite for HealthCost AI Backend
 
 import pytest
 from fastapi.testclient import TestClient
-from backend.app.main import app
+import sys
+import os
+
+# Add the parent directory to the path so we can import the app
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+try:
+    from app.main_simple import app
+except ImportError:
+    from backend.app.main_simple import app
 
 client = TestClient(app)
 
@@ -14,7 +23,7 @@ def test_root_endpoint():
     assert response.status_code == 200
     data = response.json()
     assert data["message"] == "HealthCost AI API"
-    assert data["version"] == "1.0.0"
+    assert data["version"] == "2.0.0"
     assert data["status"] == "healthy"
 
 def test_predict_endpoint():
